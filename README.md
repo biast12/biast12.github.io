@@ -1,10 +1,10 @@
-![Banner](/Main-Header.png)
+![Banner](assets/img/Main-Header.png)
 
 ### Hey there👋 I'm [Biast12](https://twitter.com/Biast12) ❤️
 
 ![Biast12 Git Stats](https://github-readme-stats.vercel.app/api?username=Biast12&show_icons=true&theme=radical&count_private=true)
 
-i'm currently looking for a job 👨‍🎓😊, tho else do i mostly work on [Legion+](https://github.com/r-ex/LegionPlus) and mentaining the biggest Apex Legends [assets archive](https://biast12.site), if you wanna help me out with maintaining the archive can you join my [Patreon](http://patreon.com/Biast12)
+i'm currently looking for a job 👨‍🎓😊, tho else do i mostly work on mentaining the biggest Apex Legends [assets archive](https://biast12.site) and [My Website](https://biast12.info) , if you wanna help me out with maintaining the archive can you join my [Patreon](http://patreon.com/Biast12)
 
 If you wanna contact me then Check out my Twitter [Biast12](https://twitter.com/Biast12) or DM me on Discord [Biast12](https://discordapp.com/channels/@me/648679147085889536)
 
