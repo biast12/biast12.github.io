@@ -1,20 +1,25 @@
-![Banner](assets/img/Main-Header.png)
+<h1>Hey there👋 I'm <a href="https://twitter.com/Biast12">Biast12</a> ❤️</h1>
 
-### Hey there👋 I'm [Biast12](https://twitter.com/Biast12) ❤️
+<h3>About me and skills</h3>
 
-![Biast12 Git Stats](https://github-readme-stats.vercel.app/api?username=Biast12&show_icons=true&theme=radical&count_private=true)
+```javascript
+const Biast12 = {
+  aboutMe: {
+    pronouns: "he" | "him" | "weirdo",
+    country: "Denmark",
+    age: 25
+  },
+  frontend: [React, Next.js, HTML, CSS, TailwindCSS, Sass, C#, Wordpress],
+  backend: [JavaScript, TypeScript, PHP, Python, Blazor],
+  database: [SQL, PostgreSQL, MongoDB, Supabase, Pocketbase],
+  devOps: [Linux/Raspberry Pi, Docker, Apache, Cloudflare, Batch, Discord Bots],
+}
+```
 
-i'm currently looking for a job 👨‍🎓😊, tho else do i mostly work on mentaining the biggest Apex Legends [assets archive](https://biast12.site) and [My Website](https://biast12.info) , if you wanna help me out with maintaining the archive can you join my [Patreon](http://patreon.com/Biast12)
+<p>If you wanna contact me, check out my Twitter <a href="https://twitter.com/Biast12">Biast12</a> or DM me on Discord <a href="https://discordapp.com/channels/@me/648679147085889536">Biast12</a>.</p>
 
-If you wanna contact me then Check out my Twitter [Biast12](https://twitter.com/Biast12) or DM me on Discord [Biast12](https://discordapp.com/channels/@me/648679147085889536)
+<h1></h1>
+<h3>My Stats</h3>
+<img src="https://github-readme-stats.vercel.app/api?username=Biast12&show_icons=true&theme=radical&count_private=true" alt="Biast12 Git Stats">
 
-If you wanna help me out with paying this months rent, then this is my [Paypal](https://Paypal.me/Biast12) and my [Patreon](http://patreon.com/Biast12)
-
-My [LinkTree](http://linktr.ee/biast12)
-
-Also remember your smile looks pretty on you 🥰
-
-![profile](https://discord.c99.nl/widget/theme-3/648679147085889536.png)
-
-[![Join my Patreon](https://img.shields.io/badge/-Join%20my%20Patreon-brightgreen)](https://Patreon.com/Biast12)
-[![Twitter](https://img.shields.io/twitter/follow/Biast12?style=social)](https://twitter.com/intent/follow?screen_name=Biast12) [![YouTube](https://img.shields.io/youtube/channel/subscribers/UC8MNiXA0QTDElQDnj_xxvZg?style=social)](https://www.youtube.com/channel/UC8MNiXA0QTDElQDnj_xxvZg)
+<p><a href="http://linktr.ee/biast12"><img src="https://img.shields.io/badge/-My%20LinkTree-brightgreen" alt="My LinkTree"></a></p>
