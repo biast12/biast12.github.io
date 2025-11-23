@@ -12,17 +12,29 @@ on:
 jobs:
   sync-readme:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout biast12.github.io
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Fetch README from profile repo
         run: |
-          curl -H "Accept: application/vnd.github.v3.raw" \
+          curl -L -H "Accept: application/vnd.github.raw" \
+               -H "X-GitHub-Api-Version: 2022-11-28" \
                -o README.md \
                https://api.github.com/repos/biast12/biast12/contents/README.md
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Update age in README
+        run: node update-age.js
 
       - name: Check for changes
         id: changes
@@ -35,5 +47,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Sync README from profile repository"
+          git commit -m "Sync README from profile repository and update age"
           git push
