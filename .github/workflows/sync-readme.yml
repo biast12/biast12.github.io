@@ -1,0 +1,39 @@
+name: Sync README from Profile
+
+on:
+  schedule:
+    # Run daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout biast12.github.io
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch README from profile repo
+        run: |
+          curl -H "Accept: application/vnd.github.v3.raw" \
+               -o README.md \
+               https://api.github.com/repos/biast12/biast12/contents/README.md
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet README.md || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Sync README from profile repository"
+          git push
