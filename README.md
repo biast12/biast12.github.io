@@ -9,7 +9,7 @@ const Biast12 = {
     job_title: Developer,
     pronouns: he | him,
     country: Denmark,
-    age: 25
+    age: 26
   },
   frontend: [React, Next.js, HTML, CSS, TailwindCSS, C#, Sass, Wordpress],
   backend: [JavaScript, TypeScript, Go, PHP, Python, Blazor],
