@@ -22,4 +22,4 @@ const Biast12 = {
 
 <h1></h1>
 <h3>My Stats</h3>
-<img src="https://github-readme-stats-vpyp.vercel.app/api?username=Biast12&show_icons=true&theme=radical&count_private=true" alt="Biast12 Git Stats">
+<img src="https://github-stats-extended.vercel.app/api?username=Biast12&show_icons=true&theme=radical&count_private=true" alt="Biast12 Git Stats">
