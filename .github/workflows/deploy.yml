@@ -1,0 +1,81 @@
+name: Deploy site
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Fetch profile README
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          profile="$RUNNER_TEMP/profile.md"
+          gh api repos/biast12/biast12/contents/README.md \
+            -H "Accept: application/vnd.github.raw" > "$profile"
+          if [ ! -s "$profile" ] || [ "$(head -c1 "$profile")" = "{" ]; then
+            echo "::error::Profile README is empty or an API error"
+            exit 1
+          fi
+
+      - name: Update age
+        env:
+          TZ: Europe/Copenhagen
+          BIRTHDAY: 20000228
+        run: |
+          profile="$RUNNER_TEMP/profile.md"
+          # Subtracting YYYYMMDD dates and dividing by 10000 gives whole years
+          age=$(( ($(date +%Y%m%d) - BIRTHDAY) / 10000 ))
+          if grep -qE '\bage: [0-9]+' "$profile"; then
+            sed -Ei "s/\bage: [0-9]+/age: $age/" "$profile"
+          else
+            echo "::warning::No 'age: N' line in the profile README, age not updated"
+          fi
+
+      - name: Generate index page
+        run: |
+          {
+            printf -- '---\nlayout: default\n---\n{%% raw %%}\n'
+            cat "$RUNNER_TEMP/profile.md"
+            printf '\n{%% endraw %%}\n'
+          } > index.md
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

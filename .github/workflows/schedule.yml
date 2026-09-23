@@ -1,0 +1,15 @@
+name: Daily rebuild
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+
+permissions: {}
+
+jobs:
+  rebuild:
+    uses: ./.github/workflows/deploy.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
